@@ -26,13 +26,13 @@ makeCacheMatrix <- function(x = matrix()) {
 # inverse is not computed. 
 
 cacheSolve <- function(x, ...) {
-  inverse <- x$getinverse()
-  if(!is.null(inverse)) {
+  inv <- x$getinverse()
+  if(!is.null(inv)) {
     print("getting cached data for inverse.")
-    return(inverse)
+    return(inv)
   }
   data <- x$get()
-  inverse <- solve(data)
-  x$setinverse(inverse)
-  inverse
+  inv <- solve(data)
+  x$setinverse(inv)
+  inv
 }
